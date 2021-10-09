@@ -1,0 +1,73 @@
+@import 'fonts';
+@import 'dimensions';
+
+@import 'bstrp/bootstrap';
+
+@import 'colors';
+@import 'manual_mixins';
+
+@import 'global', 'header', 'footer', 'landing_page';
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $white;
+    font-family: 'Ambient', sans-serif !important;
+
+    p {
+        margin: 1rem 1rem;
+        font-size: $fnormal;
+        line-height: 1.6rem;
+
+        @include media-breakpoint-up(md) {
+            line-height: 2rem;
+        }
+    }
+}
+
+main {
+    margin-bottom: $footer-height-mobile;
+
+    @include media-breakpoint-up(md) {
+        margin-bottom: $footer-height;
+    }
+}
+
+*, ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/*Effects*/
+.fade-in {
+    opacity: 0;
+    transition: opacity 500ms ease-in 100ms;
+}
+
+.fade-in-load {
+    opacity: 0;
+    transition: opacity 200ms ease-in 400ms;
+}
+
+.hover-link {
+    color: $white;
+    text-decoration: none;
+
+    @include hover-effect($black);
+
+    &:hover {
+        color: $white;
+        text-decoration: none;
+    }
+}

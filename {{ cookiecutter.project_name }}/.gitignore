@@ -1,0 +1,5 @@
+node_modules/
+{{ cookiecutter.project_name }}env/
+localenv/
+htmlcov/
+.coverage

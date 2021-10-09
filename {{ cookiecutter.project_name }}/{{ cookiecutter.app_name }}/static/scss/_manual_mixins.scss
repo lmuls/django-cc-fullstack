@@ -1,0 +1,126 @@
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+
+@mixin hover-effect($color, $bottom: 2px, $height: 2px) {
+
+    &:before, &:after {
+    content: '';
+    position: absolute;
+    bottom: $bottom;
+    left: 0; right: 0;
+    height: $height;
+    /* background: #F09819; */
+    background: $color;
+    }
+
+    &:before {
+        opacity: 0;
+        transform: translateY(- $distance);
+        transition: transform 0s $easeOutBack, opacity 0s;
+    }
+
+    &:after {
+        opacity: 0;
+        transform: translateY($distance/2);
+        transition: transform $duration $easeOutBack, opacity $duration;
+    }
+
+    &:hover, &:focus {
+        &:before, &:after {
+        opacity: 1;
+        transform: translateY(0);
+        }
+        &:before {
+        transition: transform $duration $easeOutBack, opacity $duration;
+        }
+        &:after {
+        transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+        }
+    }
+};
+
+$distance2: 50px;
+$duration2: 700ms;
+
+@mixin hover-effect-horisontal($color, $bottom: 2px, $height: 2px) {
+
+    &:before, &:after {
+    content: '';
+    position: absolute;
+    bottom: $bottom;
+    left: 0; right: 0;
+    height: $height;
+    /* background: #F09819; */
+    background: $color;
+    }
+
+    &:before {
+        opacity: 0;
+        transform: translateX(- $distance2);
+        transition: transform 0s $easeOutBack, opacity 0s;
+    }
+
+    &:after {
+        opacity: 0;
+        transform: translateX($distance2/2);
+        transition: transform $duration2 $easeOutBack, opacity $duration2;
+    }
+
+    &:hover, &:focus {
+        &:before, &:after {
+        opacity: 1;
+        transform: translateX(0);
+        }
+        &:before {
+        transition: transform $duration2 $easeOutBack, opacity $duration2;
+        }
+        &:after {
+        transition: transform 0s $duration2 $easeOutBack, opacity 0s $duration2;
+        }
+    }
+};
+
+
+
+@mixin hover-effect-cover($color) {
+    &:hover, &:focus {
+        background: rgba($gc3,0.5);
+        border-radius: 50px;
+        box-shadow: 0 0 10px rgba($gc3, 0.7);
+        transition: all 350ms ease-in;
+    }
+};
+
+@mixin hover-effect-change($color) {
+    &:hover, &:focus {
+
+        a {
+            color: rgba($gc3, 0.9);
+            transition: all 350ms ease-in-out;
+        }
+        
+    }
+};
+
+
+@mixin background-fade($color, $opacity) {
+    background: $color;
+    background: rgba($color, $opacity);
+};
+
+@mixin underline($color: $gc3, $width: 110%) {
+    position: relative;
+
+    &::after {
+        content: "";
+        height: 2px;
+        background: $color;
+        width: $width;
+        position:absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

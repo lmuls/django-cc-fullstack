@@ -1,0 +1,61 @@
+{% raw %}
+    {% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{cookiecutter.google_analytics_tag}}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '{{ cookiecutter.google_analytics_tag }}');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <link rel="icon" type="img" href="{% static '' %}" sizes="32x32">
+    
+    {% block head %} 
+
+    {% endraw %}
+        <title>{{ cookiecutter.project_name }}</title>
+
+    {% raw %}
+    {% endblock head %}
+
+
+
+</head>
+<body> 
+    <main>
+
+        {% include 'header.html' %}
+        <div class="frame">
+        {% block main %}
+        
+        {% endblock %}
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/anime.min.js' %}"></script>
+    <script src="{% static {% endraw %} 'js/{{ cookiecutter.app_name }}.js' {% raw %} %}"></script>
+    
+    {% block js %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+</body>
+</html>
+
+{% endraw %}

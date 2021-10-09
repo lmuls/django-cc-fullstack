@@ -1,0 +1,25 @@
+{
+    "project_name": "djangoproj",
+    "app_name": "djangoapp",
+    
+    "STATE": [
+        "DEV",
+        "PROD"
+    ],
+
+    "USE_DB": [
+        "LOCAL",
+        "EXTERNAL"
+    ],  
+    "DATABASE_URL": "host=localhost user=postgres password=ragopass123 dbname={{ cookiecutter.project_name }}_dev",
+    
+    "USE_S3": [
+        "TRUE",
+        "FALSE"
+    ],
+    
+    "SECRET_KEY": "generated_secret_key",
+    "google_analytics_tag": ""
+
+    
+}
